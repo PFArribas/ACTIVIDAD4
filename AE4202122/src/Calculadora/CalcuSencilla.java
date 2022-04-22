@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 //
-// Versi01: Con comentarios y sin metodos
+// Version2: Con comentarios y con metodos
 //
 
 public class CalcuSencilla 
@@ -30,26 +30,61 @@ public class CalcuSencilla
 			num2 = Float.parseFloat(Teclado.readLine());
 			
 			// los sumamos y se muestra el resultado
-			resul = num1 + num2;
-			System.out.printf("1.- SUMA: %1$,.2f + %2$,.2f = %3$,.2f", num1, num2, resul);
+			resul = Suma(num1, num2);
+			MuestaResultado(num1, num2, resul, "SUMA", "+");
 			
 			// los restamos y se muestra el resultado
-			resul = num1 - num2;
-			System.out.printf("\n2.- RESTA: %1$,.2f - %2$,.2f = %3$,.2f", num1, num2, resul);
+			resul = Resta(num1, num2);
+			MuestaResultado(num1, num2, resul, "RESTA", "-");
 			
 			// los multiplicamos y se muestra el resultado
-			resul = num1 * num2;
-			System.out.printf("\n3.- PRODUCTO: %1$,.2f * %2$,.2f = %3$,.2f", num1, num2, resul);
+			resul = Producto(num1, num2);
+			MuestaResultado(num1, num2, resul, "PRODUCTO", "*");
 
 			// los dividimos y se muestra el resultado
-			resul = num1 / num2;
-			System.out.printf("\n4.- COCIENTE: %1$,.2f / %2$,.2f = %3$,.2f", num1, num2, resul);
+			resul = Division(num1, num2);
+			MuestaResultado(num1, num2, resul, "DIVISION", "/");
 
 		} 
 		catch (Exception e) 
 		{		
 			System.out.print ("AVISO: " + e.getMessage());
 		}
+	}
+
+	// Metodo para mostrar el resultado
+	private static void MuestaResultado(float num1, float num2, float resul, String operacion, String simbolo) {
+		System.out.printf("- " + operacion +": %1$,.2f "+ simbolo +" %2$,.2f = %3$,.2f\n", num1, num2, resul);
+	}
+
+	// Metodo para la division
+	private static float Division(float num1, float num2) {
+		float resul;
+		resul = num1 / num2;
+		return resul;
+	}
+
+	// Metodo para el producto
+	private static float Producto(float num1, float num2) {
+		float resul;
+		resul = num1 * num2;
+		return resul;
+	}
+
+	// Metodo para la resta
+	private static float Resta(float num1, float num2) 
+	{
+		float resul;
+		resul = num1 - num2;
+		return resul;
+	}
+
+	// Metodo para la suma
+	private static float Suma(float num1, float num2) 
+	{
+		float resul;
+		resul = num1 + num2;
+		return resul;
 	}
 }
 
